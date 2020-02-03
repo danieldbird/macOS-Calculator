@@ -1,0 +1,217 @@
+* {
+  font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+*:focus {
+  outline: none;
+}
+
+html {
+  background-color: #ddd;
+}
+
+.calculator {
+  background-color: #9a9a9a;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border: 1px solid #686868;
+  border-radius: 5px;
+  width: 234px;
+  overflow: hidden;
+}
+
+.navigation .buttons {
+  padding: 2px 0 0 8px;
+  position: relative;
+  display: inline-block;
+}
+.navigation .buttons > div {
+  margin: 0 3px 0 0;
+  display: inline-block;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+}
+.navigation .buttons > .close {
+  background: #f5595c;
+  position: relative;
+}
+.navigation .buttons:hover > .close::before {
+  position: absolute;
+  content: "×";
+  color: rgb(92, 92, 92);
+  font-size: 14px;
+  font-weight: 700;
+  top: -4px;
+  left: 1.5px;
+}
+.navigation .buttons > .close:active {
+  background-color: #a54647;
+}
+.navigation .buttons > .minimise:active {
+  background-color: #977736;
+}
+.navigation .buttons > .maximise:active {
+  background-color: #358b2b;
+}
+.navigation .buttons > .minimise {
+  background: #fbaf15;
+  position: relative;
+}
+.navigation .buttons:hover > .minimise::before {
+  position: absolute;
+  content: "−";
+  color: rgb(92, 92, 92);
+  font-size: 14px;
+  font-weight: 700;
+  top: -4px;
+  left: 1px;
+}
+.navigation .buttons > .maximise {
+  background: #37c127;
+  position: relative;
+}
+.navigation .buttons:hover > .maximise::before {
+  position: absolute;
+  content: "◥";
+  color: rgb(92, 92, 92);
+  font-size: 5px;
+  font-weight: 700;
+  top: 2px;
+  left: 4px;
+}
+.navigation .buttons:hover > .maximise::after {
+  position: absolute;
+  content: "◣";
+  color: rgb(92, 92, 92);
+  font-size: 5px;
+  font-weight: 700;
+  top: 3px;
+  left: 3px;
+}
+
+.display {
+  height: 60px;
+  text-align: right;
+  color: #fff;
+  font-size: 47px;
+  font-weight: 100;
+  padding: 0 15px;
+}
+.keypad {
+  display: grid;
+  grid-template-columns: repeat(4, 58px);
+  grid-template-rows: repeat(5, 48px);
+  background-color: rgb(155, 155, 155);
+}
+button {
+  font-weight: 300;
+  /* height: 40px; */
+  border: none;
+}
+
+.function,
+.operator,
+.number {
+  display: flex;
+  justify-content: center;
+  /* align-items: flex-start; */
+  /* justify-content: space-between; */
+  flex-flow: wrap;
+}
+
+.function {
+  font-size: 21px;
+  justify-content: baseline;
+  color: #000;
+  grid-column: span 3;
+}
+
+.function > button {
+  background-color: #d6d6d6;
+  flex-basis: 33.3333%;
+  grid-column: span 2;
+  border-right: 1px solid rgb(134, 134, 134);
+  border-bottom: 1px solid rgb(134, 134, 134);
+}
+.function > button:nth-last-child(1) {
+  border-right: none;
+}
+.function > button:active,
+.number > button:active {
+  background-color: rgb(189, 189, 189);
+}
+.operator > button:active {
+  background-color: #c77518;
+  color: #535353;
+}
+.function .C {
+  font-size: 18px;
+  padding-top: 2px;
+  font-weight: 400;
+}
+.function .\< {
+  font-size: 22px;
+  padding-bottom: 2px;
+  font-weight: 250;
+}
+.function .\&plusmn\; {
+  font-size: 30px;
+  font-weight: 150;
+  padding-bottom: 5px;
+}
+
+.number {
+  font-size: 21px;
+  grid-column: span 3;
+  grid-row: span 4;
+}
+.number > button {
+  flex-basis: 33.3333%;
+  background-color: #e3e3e3;
+  border-right: 1px solid rgb(134, 134, 134);
+  border-bottom: 1px solid rgb(134, 134, 134);
+}
+
+.number .\30 {
+  border-radius: 0 0 0 5px;
+}
+
+.number .\30 {
+  flex-basis: 66.6%;
+  border-bottom: none;
+  justify-content: left;
+  padding-left: 23px;
+}
+.number .\. {
+  border-bottom: none;
+}
+.number > button:nth-child(3),
+.number > button:nth-child(6),
+.number > button:nth-child(9),
+.number > button:nth-child(11) {
+  border-right: none;
+}
+
+.operator {
+  font-size: 30px;
+  font-weight: 200;
+  color: #fff;
+  grid-row: span 5;
+}
+.operator > button {
+  padding-bottom: 4px;
+  background-color: #ff9925;
+  flex-basis: 100%;
+  border-bottom: 1px solid rgb(134, 134, 134);
+}
+
+.operator .\&equals\; {
+  border-radius: 0 0 5px 0;
+  /* height: 65px; */
+}
